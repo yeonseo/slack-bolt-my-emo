@@ -1,6 +1,7 @@
 const {App, LogLevel, SocketModeReceiver} = require('@slack/bolt');
 const modalDialogs = require('./modalDialogs');
 const parseUrl = require('./imageParse');
+const resizeImage = require('./imageResize');
 
 
 const clientOptions = {
@@ -26,37 +27,22 @@ const clientOptions = {
 // });
 
 
-// Bot 토큰 사용 시 => 봇 메세지로 전송 ex) My Emo : "message"
-// User 토큰 사용 시 => 사용자 메세지로 전송 ex) 남연서 : "message"
-// SLACK_APP_TOKEN=xapp-1-A05G28PGXGV-5549296255795-791c6a3e56287f02d3e192c276d1eaaf7f416444856b54b7c5a97f805fda63d5
-// SLACK_BOT_TOKEN=xoxb-5521065691703-5572958029760-G6ohVZ4pDzZVtsDML33I7Bjk
-// SLACK_USER_TOKEN=xoxp-5521065691703-5548237516129-5550454554086-b08292f18a8e6f0b89f8f8b5909abbd2
-// SLACK_SIGNING_SECRET=cd94d91528d61228c08290d80d15402a
-
-
-// BCG
-// SLACK_APP_TOKEN : xapp-1-A05H3TD20EL-5558227993794-35f72ae12233ddfc73731a4c9208a1299a7d6db1bdfe463db91c0ad84d00731d
-// SLACK_USER_TOKEN = xoxp-3884918360485-3881282280982-5558118058131-d8ed28a448471977a7660f11b19a7dcd
-// SLACK_BOT_TOKEN = xoxb-3884918360485-5581939098240-H0EYz8n1a73QonorntR1iF6M
-// SLACK_SIGNING_SECRET = 6838f5aa3276defce86a24dc768a2ac3
-
+// const app = new App({
+//     // receiver: socketModeReceiver,
+//     token: "xoxb-5521065691703-5572958029760-OinBY134K5M84D7242buyZy6", //disable this if enabling OAuth in socketModeReceiver
+//     signingSecret: "cd94d91528d61228c08290d80d15402a",
+//     appToken: "xapp-1-A05G28PGXGV-5561168038866-bbfd9cc86cccbff2dffeb074845d6d4c8c1540d9c2b79d613885a154743ba187",
+//     socketMode: true,
+// });
 
 const app = new App({
     // receiver: socketModeReceiver,
-    token: "xoxb-5521065691703-5572958029760-G6ohVZ4pDzZVtsDML33I7Bjk", //disable this if enabling OAuth in socketModeReceiver
-    signingSecret: "cd94d91528d61228c08290d80d15402a",
-    appToken: "xapp-1-A05G28PGXGV-5549296255795-791c6a3e56287f02d3e192c276d1eaaf7f416444856b54b7c5a97f805fda63d5",
+    token: "xoxb-3884918360485-5581939098240-s7Wrabmd1olt8j7KgHR4C4qG", // bolt
+    // token: "xoxp-3884918360485-3881282280982-5563443528836-74a87ae19a4c6188446e35baf4d7f02c", // user
+    signingSecret: "6838f5aa3276defce86a24dc768a2ac3",
+    appToken: "xapp-1-A05H3TD20EL-5546517222631-8bc509db1ecd1b45fb676cab7f9d3909fa0dcbac5444122786c18a72104162d4",
     socketMode: true,
 });
-
-//
-// const app = new App({
-//     // receiver: socketModeReceiver,
-//     token: "xoxp-3884918360485-3881282280982-5558118058131-d8ed28a448471977a7660f11b19a7dcd", //disable this if enabling OAuth in socketModeReceiver
-//     signingSecret: "6838f5aa3276defce86a24dc768a2ac3",
-//     appToken: "xapp-1-A05H3TD20EL-5558227993794-35f72ae12233ddfc73731a4c9208a1299a7d6db1bdfe463db91c0ad84d00731d",
-//     socketMode: true,
-// });
 
 
 (async () => {
@@ -71,11 +57,6 @@ const app = new App({
 
 // 🌟 슬랙 메세지에서 앱 호출
 app.shortcut('my_emo_thread', async ({shortcut, body, ack, context, client}) => {
-    console.log("🌟🌟🌟🌟🌟");
-
-    console.log(shortcut);
-    console.log(body);
-
     // Acknowledge shortcut request
     await ack();
 
@@ -93,9 +74,6 @@ app.shortcut('my_emo_thread', async ({shortcut, body, ack, context, client}) => 
 /**
  * Button
  */
-
-
-
 // 이모티콘 타입 선택 버튼 이벤트
 app.action('button_emo_type', async ({
     body,
@@ -104,10 +82,6 @@ app.action('button_emo_type', async ({
     client,
     view
 }) => {
-    // console.log('button clicked');
-    // console.log(action);
-    // console.log(body);
-
     // acknowledge the request right away
     await ack();
 
@@ -119,9 +93,6 @@ app.action('button_emo_type', async ({
         // 버튼 값 가져오기
         const type = action.value;
         let srcList = parseUrl(type);
-
-
-        console.log(srcList)
 
         const blocks = [];
         for (let item of srcList) {
@@ -155,9 +126,9 @@ app.action('button_emo_type', async ({
             };
 
             const divider =
-                {
-                    "type": "divider"
-                }
+            {
+                "type": "divider"
+            }
 
             blocks.push(blockSection, blockActions, divider);
         }
@@ -189,7 +160,7 @@ app.action('button_emo_detail_01', async ({
                                               client,
                                               view
                                           }) => {
-    console.log('이모티콘 상세보기');
+    console.log('TODO 이모티콘 상세보기');
     console.log(action);
 
     // acknowledge the request right away
@@ -212,6 +183,7 @@ app.action('button_emo_detail_01', async ({
         console.error(error);
     }
 });
+
 // 이모티콘 선택 및 메세지 전송
 app.action('button_emo_select', async ({
                                            body,
@@ -228,11 +200,28 @@ app.action('button_emo_select', async ({
         const metadata = JSON.parse(body.view.private_metadata);
         const channel_id = metadata.channel;
 
+        // const image_url = resizeImage(action.value);
         const image_url = action.value;
+
+        const result = await client.users.info({
+            user: body.user.id
+        });
+
+        const userName = result.user.real_name; // User's display name
+        const userIconUrl = result.user.profile.image_192; // User's profile image URL
+
         await client.chat.postMessage({
-            text: `From @${body.user.username} ⭐️`,
+            // text: `From @${body.user.username} ⭐️`,
+            username: userName,
+            icon_url: userIconUrl,
             channel: channel_id,
-            attachments: [{"title": "", "image_url": image_url}]
+            blocks: [
+                {
+                    "type": "image",
+                    "image_url": image_url,
+                    "alt_text": "🌟"
+                }
+            ]
         });
 
         await client.views.update({

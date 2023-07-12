@@ -112,22 +112,22 @@ const modalDialogs = {
                         "type": "button",
                         "text": {
                             "type": "plain_text",
-                            "text": "Choose",
+                            "text": "이모티콘 리스트 ➡️",
                             "emoji": true
                         },
                         "value": "choonsik-and-friends",
                         "action_id": "button_emo_type"
                     },
-                    {
-                        "type": "button",
-                        "text": {
-                            "type": "plain_text",
-                            "text": "View Details",
-                            "emoji": true
-                        },
-                        "value": "choonsik-and-friends",
-                        "action_id": "button_emo_detail_01"
-                    }
+                    // {
+                    //     "type": "button",
+                    //     "text": {
+                    //         "type": "plain_text",
+                    //         "text": "View Details",
+                    //         "emoji": true
+                    //     },
+                    //     "value": "choonsik-and-friends",
+                    //     "action_id": "button_emo_detail_01"
+                    // }
                 ]
             },
             {
@@ -152,22 +152,22 @@ const modalDialogs = {
                         "type": "button",
                         "text": {
                             "type": "plain_text",
-                            "text": "Choose",
+                            "text": "이모티콘 리스트 ➡️",
                             "emoji": true
                         },
                         "value": "sweet-rabbit-tosimi-ver-9",
                         "action_id": "button_emo_type"
                     },
-                    {
-                        "type": "button",
-                        "text": {
-                            "type": "plain_text",
-                            "text": "View Details",
-                            "emoji": true
-                        },
-                        "value": "sweet-rabbit-tosimi-ver-9",
-                        "action_id": "button_emo_detail_01"
-                    }
+                    // {
+                    //     "type": "button",
+                    //     "text": {
+                    //         "type": "plain_text",
+                    //         "text": "View Details",
+                    //         "emoji": true
+                    //     },
+                    //     "value": "sweet-rabbit-tosimi-ver-9",
+                    //     "action_id": "button_emo_detail_01"
+                    // }
                 ]
             },
             {
@@ -192,22 +192,22 @@ const modalDialogs = {
                         "type": "button",
                         "text": {
                             "type": "plain_text",
-                            "text": "Choose",
+                            "text": "이모티콘 리스트 ➡️",
                             "emoji": true
                         },
                         "value": "eunuchs-summer-day-2",
                         "action_id": "button_emo_type"
                     },
-                    {
-                        "type": "button",
-                        "text": {
-                            "type": "plain_text",
-                            "text": "View Details",
-                            "emoji": true
-                        },
-                        "value": "eunuchs-summer-day-2",
-                        "action_id": "button_emo_detail_01"
-                    }
+                    // {
+                    //     "type": "button",
+                    //     "text": {
+                    //         "type": "plain_text",
+                    //         "text": "View Details",
+                    //         "emoji": true
+                    //     },
+                    //     "value": "eunuchs-summer-day-2",
+                    //     "action_id": "button_emo_detail_01"
+                    // }
                 ]
             },
             {
@@ -232,22 +232,102 @@ const modalDialogs = {
                         "type": "button",
                         "text": {
                             "type": "plain_text",
-                            "text": "Choose",
+                            "text": "이모티콘 리스트 ➡️",
                             "emoji": true
                         },
-                        "value": "maltese_daily_life_as_a_dog",
+                        "value": "maltese-daily-life-as-a-dog",
                         "action_id": "button_emo_type"
                     },
+                    // {
+                    //     "type": "button",
+                    //     "text": {
+                    //         "type": "plain_text",
+                    //         "text": "View Details",
+                    //         "emoji": true
+                    //     },
+                    //     "value": "maltese-daily-life-as-a-dog",
+                    //     "action_id": "button_emo_detail_01"
+                    // }
+                ]
+            },
+            {
+                "type": "divider"
+            },
+            {
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": "*꼬질 망그러진 곰*"
+                },
+                "accessory": {
+                    "type": "image",
+                    "image_url": "https://item.kakaocdn.net/do/dc9561970173c28a13654c3f14180b4bf43ad912ad8dd55b04db6a64cddaf76d",
+                    "alt_text": "Redwood Suite"
+                }
+            },
+            {
+                "type": "actions",
+                "elements": [
                     {
                         "type": "button",
                         "text": {
                             "type": "plain_text",
-                            "text": "View Details",
+                            "text": "이모티콘 리스트 ➡️",
                             "emoji": true
                         },
-                        "value": "maltese_daily_life_as_a_dog",
-                        "action_id": "button_emo_detail_01"
-                    }
+                        "value": "broken-bear-grubby-ver",
+                        "action_id": "button_emo_type"
+                    },
+                    // {
+                    //     "type": "button",
+                    //     "text": {
+                    //         "type": "plain_text",
+                    //         "text": "View Details",
+                    //         "emoji": true
+                    //     },
+                    //     "value": "broken-bear-grubby-ver",
+                    //     "action_id": "button_emo_detail_01"
+                    // }
+                ]
+            },
+            {
+                "type": "divider"
+            },
+            {
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": "*마루는 강쥐*"
+                },
+                "accessory": {
+                    "type": "image",
+                    "image_url": "https://item.kakaocdn.net/do/4e86c5076769b37c10aade6c8a0fc47ff43ad912ad8dd55b04db6a64cddaf76d",
+                    "alt_text": "Redwood Suite"
+                }
+            },
+            {
+                "type": "actions",
+                "elements": [
+                    {
+                        "type": "button",
+                        "text": {
+                            "type": "plain_text",
+                            "text": "이모티콘 리스트 ➡️",
+                            "emoji": true
+                        },
+                        "value": "maru-the-puppy-girl-",
+                        "action_id": "button_emo_type"
+                    },
+                    // {
+                    //     "type": "button",
+                    //     "text": {
+                    //         "type": "plain_text",
+                    //         "text": "View Details",
+                    //         "emoji": true
+                    //     },
+                    //     "value": "maru-the-puppy-girl-",
+                    //     "action_id": "button_emo_detail_01"
+                    // }
                 ]
             },
             {
